@@ -127,7 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="chip.cpp" />
     <ClCompile Include="Nine-Men-s-Morris.cpp" />
+    <ClCompile Include="point.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="chip.h" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="point.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

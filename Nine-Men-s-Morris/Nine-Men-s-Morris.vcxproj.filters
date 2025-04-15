@@ -18,5 +18,22 @@
     <ClCompile Include="Nine-Men-s-Morris.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="point.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chip.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
