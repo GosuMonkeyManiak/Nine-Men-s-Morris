@@ -11,7 +11,10 @@ class chip : public point
 		unsigned char isOnBoard;
 
 	public:
+		chip();
 		chip(color chipColorParam);
+
+		void setColor(color newColorValue);
 
 		void move(point targetPosition);
 		void place(point position);

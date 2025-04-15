@@ -1,3 +1,3 @@
 #pragma once
 
-enum color { white, black };
+enum color { noColor, white, black, };
