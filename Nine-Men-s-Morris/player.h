@@ -1,13 +1,14 @@
 #pragma once
 
 #include "chip.h"
+#include "utilities.h"
 
 class player
 {
 	private:
 		char *name;
 		chip chips[9];
-		unsigned char chipsOnBoard;
+		byte chipsOnBoard;
 
 	public:
 		player(char *nameParam, color chipsColorParam);

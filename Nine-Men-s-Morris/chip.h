@@ -2,13 +2,13 @@
 
 #include "point.h"
 #include "color.h"
-
+#include "utilities.h"
 
 class chip : public point
 {
 	private:
 		color chipColor;
-		unsigned char isOnBoard;
+		byte isOnBoard;
 
 	public:
 		chip();

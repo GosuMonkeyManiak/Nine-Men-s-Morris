@@ -1,10 +1,11 @@
 #include <string.h>
 
 #include "player.h"
+#include "utilities.h"
 
 player::player(char* nameParam, color chipsColorParam)
 {
-	unsigned char nameLength = strlen(nameParam);
+	byte nameLength = strlen(nameParam);
 
 	name = new char[nameLength + 1];
 	strncpy(name, nameParam, nameLength);
