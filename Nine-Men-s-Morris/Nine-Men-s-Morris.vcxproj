@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="chip.cpp" />
     <ClCompile Include="Nine-Men-s-Morris.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="point.cpp" />
   </ItemGroup>
