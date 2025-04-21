@@ -128,16 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="chip.cpp" />
-    <ClCompile Include="Nine-Men-s-Morris.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="point.cpp" />
+    <ClCompile Include="printUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chip.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="point.h" />
+    <ClInclude Include="printUtil.h" />
     <ClInclude Include="utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
