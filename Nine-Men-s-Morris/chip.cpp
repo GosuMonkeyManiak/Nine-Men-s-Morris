@@ -17,24 +17,7 @@ void chip::setColor(color newColorValue)
 	chipColor = newColorValue;
 }
 
-void chip::move(point targetPosition)
+void chip::setIsOnBoard(bool state)
 {
-	setX(targetPosition.getX());
-	setY(targetPosition.getY());
-}
-
-void chip::place(point position)
-{
-	setX(position.getX());
-	setY(position.getY());
-
-	isOnBoard = 1;
-}
-
-void chip::remove(void)
-{
-	setX(0);
-	setY(0);
-
-	isOnBoard = 0;
+	isOnBoard = state;
 }
