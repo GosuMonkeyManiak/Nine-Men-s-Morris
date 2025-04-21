@@ -14,4 +14,6 @@ class point
 
 		unsigned int getX(void);
 		unsigned int getY(void);
+
+		void setPosition(unsigned int newX, unsigned int newY);
 };

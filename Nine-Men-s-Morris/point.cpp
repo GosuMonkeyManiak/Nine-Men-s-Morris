@@ -25,3 +25,9 @@ void point::setY(unsigned int yNewValue)
 {
 	y = yNewValue;
 }
+
+void point::setPosition(unsigned int newX, unsigned int newY)
+{
+	setX(newX);
+	setY(newY);
+}
