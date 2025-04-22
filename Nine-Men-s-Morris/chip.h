@@ -17,4 +17,5 @@ class chip : public point
 
 		void setColor(color newColorValue);
 		void setIsOnBoard(bool state);
+		color GetColor();
 };

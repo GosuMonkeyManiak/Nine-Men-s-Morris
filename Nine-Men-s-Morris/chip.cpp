@@ -21,3 +21,8 @@ void chip::setIsOnBoard(bool state)
 {
 	isOnBoard = state;
 }
+
+color chip::GetColor()
+{
+	return chipColor;	
+}
