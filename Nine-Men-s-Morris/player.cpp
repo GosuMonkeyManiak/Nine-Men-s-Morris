@@ -27,27 +27,27 @@ player::~player(void)
 	delete [] name;
 }
 
-chip* player::placechip(point position)
+chip* player::placeChip(point position)
 {
 	chip* selectedChip = &chips[chipsOnBoard];
-	selectedChip->setPosition(position.getX(), position.getY());
-	selectedChip->setIsOnBoard(true);
+	selectedChip -> setX(position.getX());
+	selectedChip -> setY(position.getY());
 	chipsOnBoard++;
 
 	return selectedChip;
 }
 
-void player::removechip(chip* chip) 
+void player::removeChip(chip* chipToRemove) 
 {
-	chip->setPosition(0,0);
-	chip->setIsOnBoard(false);
+	chipToRemove -> setX(0);
+	chipToRemove -> setY(0);
+	chipToRemove -> setIsOnBoard(false);
 
 	chipsOnBoard--;
-	
 }
 
-void player::movechip(chip* chipToMove, point targetPosition)
+void player::moveChip(chip* chipToMove, point targetPosition)
 {
-	chipToMove->setPosition(targetPosition.getX(), targetPosition.getY());
-	
+	chipToMove -> setX(targetPosition.getX());
+	chipToMove -> setY(targetPosition.getY());
 }

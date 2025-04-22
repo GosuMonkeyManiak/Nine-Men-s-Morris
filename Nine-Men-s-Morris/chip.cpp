@@ -12,6 +12,11 @@ chip::chip(color chipColorParam) : point(0, 0)
 	isOnBoard = 0;
 }
 
+color chip::getColor()
+{
+	return chipColor;
+}
+
 void chip::setColor(color newColorValue)
 {
 	chipColor = newColorValue;
@@ -20,9 +25,4 @@ void chip::setColor(color newColorValue)
 void chip::setIsOnBoard(bool state)
 {
 	isOnBoard = state;
-}
-
-color chip::GetColor()
-{
-	return chipColor;	
 }

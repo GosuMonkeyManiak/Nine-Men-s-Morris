@@ -11,11 +11,11 @@ class chip : public point
 		byte isOnBoard;
 
 	public:
-		
 		chip();
 		chip(color chipColorParam);
 
+		color getColor();
 		void setColor(color newColorValue);
+
 		void setIsOnBoard(bool state);
-		color GetColor();
 };

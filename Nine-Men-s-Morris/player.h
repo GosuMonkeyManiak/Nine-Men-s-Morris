@@ -9,16 +9,12 @@ class player
 		char *name;
 		chip chips[9];
 		byte chipsOnBoard;
-		
 
 	public:
 		player(char *nameParam, color chipsColorParam);
 		~player(void);
 		
-		chip* placechip(point position);
-		void removechip(chip* chip);
-		
-		void movechip(chip* chipToMove, point targetPosition);
-		
-		
+		chip* placeChip(point position);
+		void removeChip(chip* chipToRemove);
+		void moveChip(chip* chipToMove, point targetPosition);
 };

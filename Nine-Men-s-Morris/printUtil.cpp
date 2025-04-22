@@ -201,8 +201,7 @@ void printChips(chip* chips[])
 
 			SetConsoleCursorPosition(outputHandler, carriagePos);
 
-			//waiting chip::getColor function to be add
-			//printf("%d", chips[i] -> getColor() == white ? WHITE_CHIP : BLACK_CHIP);
+			printf("%d", chips[i] -> getColor() == white ? WHITE_CHIP : BLACK_CHIP);
 		}
 	}
 
