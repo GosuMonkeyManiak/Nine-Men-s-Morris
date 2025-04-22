@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="chip.cpp" />
+    <ClCompile Include="global.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="point.cpp" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="chip.h" />
     <ClInclude Include="color.h" />
+    <ClInclude Include="global.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="printUtil.h" />
