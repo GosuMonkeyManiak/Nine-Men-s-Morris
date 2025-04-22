@@ -8,10 +8,10 @@ class chip : public point
 {
 	private:
 		color chipColor;
-		
+		byte isOnBoard;
 
 	public:
-		byte isOnBoard;
+		
 		chip();
 		chip(color chipColorParam);
 
