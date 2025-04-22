@@ -2,7 +2,4 @@
 
 #include "chip.h"
 
-#define BLACK_CHIP 1
-#define WHITE_CHIP 2
-
-void printBoard(chip* chips[]);
+void printBoard(chip* chips[], color player1Color, color player2Color);
