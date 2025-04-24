@@ -163,18 +163,21 @@ void printChips(chip* chips[], color player1Color, color player2Color)
 
 	COORD carriagePos;
 
-	for (int i = 0; i < 23; i++)
+	if (chips != NULL)
 	{
-		if (chips[i] != NULL)
+		for (int i = 0; i < 23; i++)
 		{
-			point screenPos = screenPositionBasedOnBoardPosition[i];
+			if (chips[i] != NULL)
+			{
+				point screenPos = screenPositionBasedOnBoardPosition[i];
 
-			carriagePos.X = screenPos.getX();
-			carriagePos.Y = screenPos.getY();
+				carriagePos.X = screenPos.getX();
+				carriagePos.Y = screenPos.getY();
 
-			SetConsoleCursorPosition(outputHandler, carriagePos);
+				SetConsoleCursorPosition(outputHandler, carriagePos);
 
-			printf("%d", chips[i] -> getColor() == player1Color ? 1 : 2);
+				printf("%d", chips[i] -> getColor() == player1Color ? 1 : 2);
+			}
 		}
 	}
 
