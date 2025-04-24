@@ -50,6 +50,9 @@ class board
 
 		int isPositionEmpty(int position);
 		int isThereDama(int position);
+		int canChipBeMoved(int position);
+		int arePositionsAdjacent(int sourcePosition, int destinationPosition);
+		int canPlayerMoveAnyChip(int playerNumber);
 
 	public:
 		board(
@@ -60,4 +63,5 @@ class board
 		);
 
 		void placingChips(void);
+		void movingChips(void);
 };

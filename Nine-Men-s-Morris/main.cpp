@@ -12,4 +12,5 @@ int main()
 	board game(&player1, &player2, white, black);
 
 	game.placingChips();
+	game.movingChips();
 }
