@@ -8,13 +8,13 @@
 #include "global.h"
 
 void printEmptyBoard();
-void printChips(chip* chips[], color player1Color, color player2Color);
+void printChips(chip* chips[]);
 
-void printBoard(chip *chips[], color player1Color = white, color player2Color = black)
+void printBoard(chip *chips[])
 {
 	system("cls");
 	printEmptyBoard();
-	printChips(chips, player1Color, player2Color);
+	printChips(chips);
 }
 
 void printEmptyBoard()
@@ -157,7 +157,7 @@ void printEmptyBoard()
 	}
 }
 
-void printChips(chip* chips[], color player1Color, color player2Color)
+void printChips(chip* chips[])
 {
 	HANDLE outputHandler = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -176,7 +176,7 @@ void printChips(chip* chips[], color player1Color, color player2Color)
 
 				SetConsoleCursorPosition(outputHandler, carriagePos);
 
-				printf("%d", chips[i] -> getColor() == player1Color ? 1 : 2);
+				printf("%c", chips[i] -> getColor() == white ? 'W' : 'B');
 			}
 		}
 	}
