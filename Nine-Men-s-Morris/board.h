@@ -12,6 +12,12 @@ class board
 		color player1Color;
 		color player2Color;
 
+		char player1Damas;
+		char player1ChipsInTwoDamas;
+
+		char player2Damas;
+		char player2ChipsInTwoDamas;
+
 		chip* chips[24];
 
 		char boardConnections[24][24] =

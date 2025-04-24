@@ -13,7 +13,10 @@ class player
 	public:
 		player(char *nameParam, color chipsColorParam);
 		~player(void);
-		
+
+		char* getName(void);
+		int getChipsOnBoard(void);
+
 		chip* placeChip(point position);
 		void removeChip(chip* chipToRemove);
 		void moveChip(chip* chipToMove, point targetPosition);

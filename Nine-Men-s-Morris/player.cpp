@@ -27,6 +27,16 @@ player::~player(void)
 	delete [] name;
 }
 
+char* player::getName(void)
+{
+	return name;
+}
+
+int player::getChipsOnBoard(void)
+{
+	return chipsOnBoard;
+}
+
 chip* player::placeChip(point position)
 {
 	chip* selectedChip = &chips[chipsOnBoard];
