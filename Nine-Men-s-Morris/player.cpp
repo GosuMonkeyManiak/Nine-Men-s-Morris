@@ -42,6 +42,7 @@ chip* player::placeChip(point position)
 	chip* selectedChip = &chips[chipsOnBoard];
 	selectedChip -> setX(position.getX());
 	selectedChip -> setY(position.getY());
+	selectedChip -> setIsOnBoard(true);
 	chipsOnBoard++;
 
 	return selectedChip;

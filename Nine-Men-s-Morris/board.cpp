@@ -577,17 +577,12 @@ void board::placingChips(void)
 
 		do
 		{
-			printf("Player %d (%s) enter position (0-23): ", INLINE_IF(i % 2 == 0, 1, 2), INLINE_IF(i % 2 == 0, player1, player2)->getName());
+			printf("Player %d (%s) enter position (0-23): ", INLINE_IF(i % 2 == 0, 1, 2), INLINE_IF(i % 2 == 0, player1, player2) -> getName());
 			scanf("%d", &selectedPosition);
+
 			if (selectedPosition < 0 || selectedPosition > 23)
 			{
 				printf("Invalid position! Please input number between 0 and 23.\n");
-				continue;
-			}
-			if (!isPositionEmpty(selectedPosition))
-			{
-				printf("Position is not empty! Please select different one.\n");
-				goto enter_Position;
 			}
 
 		} while (selectedPosition < 0 || selectedPosition > 23);
@@ -595,6 +590,7 @@ void board::placingChips(void)
 		
 		if (!isPositionEmpty(selectedPosition))
 		{
+			printf("Position is not empty! Please select different one.\n");
 			goto enter_Position;
 		}
 
@@ -623,32 +619,25 @@ void board::placingChips(void)
 
 			do
 			{
-				printf("Player %d (%s) choose postion from which to remove chip (0-23): ", INLINE_IF(i % 2 == 0, 1, 2), INLINE_IF(i % 2 == 0, player1, player2)->getName());
+				printf("Player %d (%s) choose postion from which to remove chip (0-23): ", INLINE_IF(i % 2 == 0, 1, 2), INLINE_IF(i % 2 == 0, player1, player2) -> getName());
 				scanf("%d", &positionToRemove);
 
-
-				if (chips[positionToRemove]->getColor() == INLINE_IF(i % 2 == 0, player1Color, player2Color)) {
-					printf("Invalid removal: You can remove only enemie's chip!\n");
-					goto enter_Position_To_Remove;
+				if (positionToRemove < 0 || positionToRemove > 23)
+				{
+					printf("Invalid position! Please input number between 0 and 23.\n");
 				}
 
-				
-				if (isThereDama(positionToRemove)) {
-					int targetChipsOnBoard = INLINE_IF(i % 2 == 0, player2, player1)->getChipsOnBoard();
-					int targetChipsInDama = (INLINE_IF(i % 2 == 0, player2Damas, player1Damas) * 3) -
-						INLINE_IF(i % 2 == 0, player2ChipsInTwoDamas, player1ChipsInTwoDamas);
-
-					if (targetChipsOnBoard > targetChipsInDama) {
-						printf("Invalid move: You cannot remove chip from active dama!\n");
-						printf("There are %d chips which are not in active dama and you can remove.\n",
-							targetChipsOnBoard - targetChipsInDama);
-						goto enter_Position_To_Remove;
-					}
-				}
 			} while (positionToRemove < 0 || positionToRemove > 23);
+
+			if (chips[positionToRemove] == NULL)
+			{
+				printf("Invalid removal!\n");
+				goto enter_Position_To_Remove;
+			}
 
 			if ((chips[positionToRemove] -> getColor()) == INLINE_IF(i % 2 == 0, player1Color, player2Color))
 			{
+				printf("Invalid removal: You can remove only enemie's chip!\n");
 				goto enter_Position_To_Remove;
 			}
 
@@ -663,6 +652,8 @@ void board::placingChips(void)
 
 				if (targetChipsOnBoard > targetChipsInDama)
 				{
+					printf("Invalid move: You cannot remove chip from active dama!\n");
+					printf("There are %d chips which are not in active dama and you can remove.\n", targetChipsOnBoard - targetChipsInDama);
 					goto enter_Position_To_Remove;
 				}
 				else
@@ -713,15 +704,29 @@ void board::movingChips(void)
 		{
 			printf("Player %d (%s) choose chip based on position (0-23): ", INLINE_IF(turn % 2 == 0, 1, 2), INLINE_IF(turn % 2 == 0, player1, player2) -> getName());
 			scanf("%d", &sourcePosition);
+
+			if (sourcePosition < 0 || sourcePosition > 23)
+			{
+				printf("Invalid position! Please input number between 0 and 23.\n");
+			}
+
 		} while (sourcePosition < 0 || sourcePosition > 23);
+
+		if (chips[sourcePosition] == NULL)
+		{
+			printf("Invalid removal!\n");
+			goto choose_Source_Position;
+		}
 
 		if (chips[sourcePosition] -> getColor() != INLINE_IF(turn % 2 == 0, player1Color, player2Color))
 		{
+			printf("Invalid select: You can select only your chips!\n");
 			goto choose_Source_Position;
 		}
 
 		if (!canChipBeMoved(sourcePosition))
 		{
+			printf("Invaid move: This chips cannot be moved.\n");
 			goto choose_Source_Position;
 		}
 
@@ -734,15 +739,23 @@ void board::movingChips(void)
 		{
 			printf("Player %d (%s) choose destination position (0-23): ", INLINE_IF(turn % 2 == 0, 1, 2), INLINE_IF(turn % 2 == 0, player1, player2) -> getName());
 			scanf("%d", &destinationPosition);
+
+			if (destinationPosition < 0 || destinationPosition > 23)
+			{
+				printf("Invalid position! Please input number between 0 and 23.\n");
+			}
+
 		} while (destinationPosition < 0 || destinationPosition > 23);
 
 		if (!arePositionsAdjacent(sourcePosition, destinationPosition))
 		{
+			printf("Invalid select: Source and Destination position aren't adjacent!\n");
 			goto choose_Destination_Position;
 		}
 
 		if (chips[destinationPosition] != NULL)
 		{
+			printf("Invalid move: This position has already been occupied!\n");
 			goto choose_Destination_Position;
 		}
 
@@ -780,16 +793,29 @@ void board::movingChips(void)
 
 			int positionToRemove;
 
-		enter_Position_To_Remove:
+			enter_Position_To_Remove:
 
 			do
 			{
 				printf("Player %d (%s) choose postion from which to remove chip (0-23): ", INLINE_IF(turn % 2 == 0, 1, 2), INLINE_IF(turn % 2 == 0, player1, player2) -> getName());
 				scanf("%d", &positionToRemove);
+
+				if (positionToRemove < 0 || positionToRemove > 23)
+				{
+					printf("Invalid position! Please input number between 0 and 23.\n");
+				}
+
 			} while (positionToRemove < 0 || positionToRemove > 23);
+
+			if (chips[positionToRemove] == NULL)
+			{
+				printf("Invalid removal!\n");
+				goto enter_Position_To_Remove;
+			}
 
 			if ((chips[positionToRemove] -> getColor()) == INLINE_IF(turn % 2 == 0, player1Color, player2Color))
 			{
+				printf("Invalid removal: You can remove only enemie's chip!\n");
 				goto enter_Position_To_Remove;
 			}
 
@@ -804,6 +830,8 @@ void board::movingChips(void)
 
 				if (targetChipsOnBoard > targetChipsInDama)
 				{
+					printf("Invalid move: You cannot remove chip from active dama!\n");
+					printf("There are %d chips which are not in active dama and you can remove.\n", targetChipsOnBoard - targetChipsInDama);
 					goto enter_Position_To_Remove;
 				}
 				else

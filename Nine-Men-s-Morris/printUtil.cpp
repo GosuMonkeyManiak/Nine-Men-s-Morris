@@ -165,7 +165,7 @@ void printChips(chip* chips[])
 
 	if (chips != NULL)
 	{
-		for (int i = 0; i < 23; i++)
+		for (int i = 0; i < 24; i++)
 		{
 			if (chips[i] != NULL)
 			{
